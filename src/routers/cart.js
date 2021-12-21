@@ -96,4 +96,35 @@ router.delete('/:id/products/:id_product', async (req, res) => {
 })
 
 
+router.patch('/*', (req, res) => {
+    res.json({
+        error : -2, 
+        description: `ruta ${req.originalUrl} con el método ${req.method} no implementada`
+    })
+})
+router.put('/*', (req, res) => {
+    res.json({
+        error : -2, 
+        description: `ruta ${req.originalUrl} con el método ${req.method} no implementada`
+    })
+})
+router.post('/:id/products/:id_product/*', (req, res) => {
+    res.json({
+        error : -2, 
+        description: `ruta ${req.originalUrl} con el método ${req.method} no implementada`
+    })
+})
+router.delete('/:id/products/:id_product/*', (req, res) => {
+    res.json({
+        error : -2, 
+        description: `ruta ${req.originalUrl} con el método ${req.method} no implementada`
+    })
+})
+router.get('/:id/products/*', (req, res) => {
+    res.json({
+        error : -2, 
+        description: `ruta ${req.originalUrl} con el método ${req.method} no implementada`
+    })
+})
+
 module.exports = router

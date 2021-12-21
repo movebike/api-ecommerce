@@ -1,6 +1,7 @@
 const express = require('express')
 const products = require('../usecases/products')
 const upload = require('../libs/multer')
+const isAuthorizatition = require('../middlewares/authorization')
 require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 
 const router = express.Router() 
@@ -49,7 +50,7 @@ router.get('/:id', async (req, res) => {
 
 
 // (disponible para administradores)
-router.post('/', upload.single('picture'), async (req, res) => {
+router.post('/', isAuthorizatition, upload.single('picture'), async (req, res) => {
     try {
         const file = req.file
         if(!file) throw new Error('Por favor ingresa una imagen')
@@ -73,7 +74,7 @@ router.post('/', upload.single('picture'), async (req, res) => {
 
 
 // (disponible para administradores)
-router.patch('/:id', upload.single('picture'), async (req, res) => {
+router.patch('/:id', isAuthorizatition, upload.single('picture'), async (req, res) => {
     try {
         const file = req.file
         const { id } = req.params
@@ -104,7 +105,7 @@ router.patch('/:id', upload.single('picture'), async (req, res) => {
 
 
 // (disponible para administradores)
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', isAuthorizatition,  async (req, res) => {
     try {
         const { id } = req.params
         await products.deleteById(id)
@@ -120,6 +121,37 @@ router.delete('/:id', async (req, res) => {
             message: error.message
         })
     }
+})
+
+router.post('/*', (req, res) => {
+    res.json({
+        error : -2, 
+        description: `ruta ${req.originalUrl} con el método ${req.method} no implementada`
+    })
+})
+router.put('/:id/*', (req, res) => {
+    res.json({
+        error : -2, 
+        description: `ruta ${req.originalUrl} con el método ${req.method} no implementada`
+    })
+})
+router.patch('/*', (req, res) => {
+    res.json({
+        error : -2, 
+        description: `ruta ${req.originalUrl} con el método ${req.method} no implementada`
+    })
+})
+router.delete('/:id/*', (req, res) => {
+    res.json({
+        error : -2, 
+        description: `ruta ${req.originalUrl} con el método ${req.method} no implementada`
+    })
+})
+router.get('/:id/*', (req, res) => {
+    res.json({
+        error : -2, 
+        description: `ruta ${req.originalUrl} con el método ${req.method} no implementada`
+    })
 })
 
 
