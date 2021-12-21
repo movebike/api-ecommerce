@@ -12,14 +12,16 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use('/static',express.static('uploads'))
 
+
+
+app.use('/api/products', productRouter)
+app.use('/api/carts', cartRouter)
+
 // app.use('/api', (req, res) => {
 //     res.json({
 //         message: 'Welcome'
 //     })
 // })
-
-app.use('/api/products', productRouter)
-app.use('/api/cart', cartRouter)
 
 
 app.listen(PORT, () => {

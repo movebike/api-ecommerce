@@ -4,7 +4,7 @@ class Cart {
     constructor (products) {
         this.id = uuidv4()
         this.timestamp = Date.now()
-        this.productos = products
+        this.products = products
     }
 }
 

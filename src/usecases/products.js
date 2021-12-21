@@ -10,7 +10,9 @@ class ProductCases {
 
     static async getProducts (file) {
         try {
-            const content = await fs.promises.readFile(file, 'utf-8')
+            let content
+            if(!file) content = await fs.promises.readFile(this.file, 'utf-8')
+            content = await fs.promises.readFile(file, 'utf-8')
             if(content) {
                 const products = JSON.parse(content)
                 return products

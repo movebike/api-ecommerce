@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": "2df032cb-af60-40a1-98ed-5047d7edb256",
+    "timestamp": 1640107954302,
+    "products": [
+      {
+        "id": "403b0997-83f9-4f9f-97bf-f6e5e58bff4a",
+        "name": "Otra Moto",
+        "description": "Una moto",
+        "code": "a code",
+        "picture": "http://localhost:3000/static/10:33:33AM-logo-devkoore.png",
+        "price": 120,
+        "timestamp": 1640104413939
+      }
+    ]
+  }
+]

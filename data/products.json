@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "id": "84f53582-427e-4d73-a238-abde51574da0",
+    "name": "Moto",
+    "description": "Una moto",
+    "code": "a code",
+    "picture": "http://localhost:3000/static/10:33:21AM-logo-devkoore.png",
+    "price": 200,
+    "stock": 2,
+    "timestamp": 1640104401415
+  },
+  {
+    "id": "403b0997-83f9-4f9f-97bf-f6e5e58bff4a",
+    "name": "Otra Moto",
+    "description": "Una moto",
+    "code": "a code",
+    "picture": "http://localhost:3000/static/10:33:33AM-logo-devkoore.png",
+    "price": 120,
+    "stock": 4,
+    "timestamp": 1640104413939
+  }
+]
