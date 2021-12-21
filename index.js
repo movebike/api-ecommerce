@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const productRouter = require('./src/routers/product')
 const cartRouter = require('./src/routers/cart')
 
@@ -9,7 +10,7 @@ const PORT = process.env.PORT || 3000
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-
+app.use(cors())
 app.use('/static',express.static('uploads'))
 
 
