@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "6d2315e7-cb84-4270-9a34-6e1b16fe8d1f",
+		"name": "MoveBike",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "get products or product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/products/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "new product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "isAdmin",
+								"value": "true",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "picture",
+									"type": "file",
+									"src": "/Users/fernanda/Downloads/logo-devkoore.png"
+								},
+								{
+									"key": "product",
+									"value": "{\n    \"name\": \"Otra Moto\",\n    \"description\": \"Una moto\",\n    \"code\": \"a code\",\n    \"price\": 120,\n    \"stock\": 2\n}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/api/products/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete a product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "isAdmin",
+								"value": "true",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/products/f1df619e-6389-4dba-93c2-24d0d32a4165",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"f1df619e-6389-4dba-93c2-24d0d32a4165"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update product",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "isAdmin",
+								"value": "true",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "picture",
+									"type": "file",
+									"src": "/Users/fernanda/Downloads/deku.png",
+									"disabled": true
+								},
+								{
+									"key": "product",
+									"value": "{\n    \"name\": \"Moto\",\n    \"description\": \"Una moto\",\n    \"code\": \"HDSSW·$\",\n    \"price\": 120,\n    \"stock\": 100\n}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/api/products/920959b6-2c91-4f4c-aae3-434cccf0800f",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"920959b6-2c91-4f4c-aae3-434cccf0800f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "carts",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\": [\n        {\n            \"id\": \"403b0997-83f9-4f9f-97bf-f6e5e58bff4a\",\n            \"name\": \"Otra Moto\",\n            \"description\": \"Una moto\",\n            \"code\": \"a code\",\n            \"picture\": \"http://localhost:3000/static/10:33:33AM-logo-devkoore.png\",\n            \"price\": 120,\n            \"timestamp\": 1640104413939\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/carts",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"carts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add a new product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/carts/:id/products/:id_product",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"carts",
+								":id",
+								"products",
+								":id_product"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "bc16b336-e73c-4737-9b2e-edef3f095cd3"
+								},
+								{
+									"key": "id_product",
+									"value": "84f53582-427e-4d73-a238-abde51574da0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete a product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/carts/:id/products/:id_product",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"carts",
+								":id",
+								"products",
+								":id_product"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "bc16b336-e73c-4737-9b2e-edef3f095cd3"
+								},
+								{
+									"key": "id_product",
+									"value": "403b0997-83f9-4f9f-97bf-f6e5e58bff4a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete a cart",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/carts/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"carts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "bc16b336-e73c-4737-9b2e-edef3f095cd3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get a products by cart",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/carts/:id/products",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"carts",
+								":id",
+								"products"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "bc16b336-e73c-4737-9b2e-edef3f095cd3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
