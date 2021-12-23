@@ -1,7 +1,7 @@
 
-function isAuthorizatition(req, res, next) {
+function isAuthorization(req, res, next) {
     try {
-        const { isAdmin } = req.headers
+        const isAdmin = new Boolean(req.headers.authorization)
         if(!isAdmin) res.status(401).json({
             error : -1,
             description: `ruta ${req.originalUrl} con el método ${req.method} no autorizada`
@@ -15,4 +15,4 @@ function isAuthorizatition(req, res, next) {
     }
 }
 
-module.exports = isAuthorizatition
+module.exports = isAuthorization

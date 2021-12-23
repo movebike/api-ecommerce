@@ -40,8 +40,8 @@ class ProductCases {
         try {
             if(!productToCreate) throw new Error('No enviaste datos para guardar')
             let products = await ProductCases.getProducts(this.file)
-            const {name, description, code, price, stock, picture} = productToCreate
-            const productCreated = new Product(name, description, code, price, stock, picture)
+            const {name, description, code, price, stock, picture, lastRode, speed, limit} = productToCreate
+            const productCreated = new Product(name, description, code, price, stock,lastRode, speed, limit, picture)
             products = [...products, productCreated]
             await fs.promises.writeFile(this.file, JSON.stringify(products, null, 2))
             return productCreated

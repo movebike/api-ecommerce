@@ -1,7 +1,7 @@
 const express = require('express')
 const products = require('../usecases/products')
 const upload = require('../libs/multer')
-const isAuthorizatition = require('../middlewares/authorization')
+const isAuthorization = require('../middlewares/authorization')
 require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 
 const router = express.Router() 
@@ -50,7 +50,7 @@ router.get('/:id', async (req, res) => {
 
 
 // (disponible para administradores)
-router.post('/', isAuthorizatition, upload.single('picture'), async (req, res) => {
+router.post('/', isAuthorization, upload.single('picture'), async (req, res) => {
     try {
         const file = req.file
         if(!file) throw new Error('Por favor ingresa una imagen')
@@ -74,8 +74,10 @@ router.post('/', isAuthorizatition, upload.single('picture'), async (req, res) =
 
 
 // (disponible para administradores)
-router.patch('/:id', isAuthorizatition, upload.single('picture'), async (req, res) => {
+router.patch('/:id', isAuthorization, upload.single('picture'), async (req, res) => {
     try {
+        console.log('request')
+        console.log(req.body.product)
         const file = req.file
         const { id } = req.params
         let newData = {}
@@ -105,7 +107,7 @@ router.patch('/:id', isAuthorizatition, upload.single('picture'), async (req, re
 
 
 // (disponible para administradores)
-router.delete('/:id', isAuthorizatition,  async (req, res) => {
+router.delete('/:id', isAuthorization,  async (req, res) => {
     try {
         const { id } = req.params
         await products.deleteById(id)
