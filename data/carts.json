@@ -13,5 +13,20 @@
         "timestamp": 1640104413939
       }
     ]
+  },
+  {
+    "id": "970a5016-1032-4b0e-840f-a5bad0788ea8",
+    "timestamp": 1642472322954,
+    "products": [
+      {
+        "id": "6502529c-bb94-45cc-8174-b361dd3b2d1a",
+        "name": "Nuevo producto",
+        "description": "Una moto",
+        "code": "a code",
+        "picture": "http://localhost:4000/static/8:12:06PM-meme_3.jpeg",
+        "price": 120,
+        "timestamp": 1642471926195
+      }
+    ]
   }
 ]
