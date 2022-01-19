@@ -1,9 +1,11 @@
 const ContainerProduct = require('../../containers/file/ProductsFile')
 
+const ProductSchema = require('../../../models/mongo/product')
+
 class ProductDao extends ContainerProduct {
 
     constructor() {
-        super('./data/products.json')
+        super('./data/products.json', ProductSchema)
     }
 
     addProduct(product) {

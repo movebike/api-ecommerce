@@ -1,7 +1,6 @@
 const fs = require('fs')
 const Product = require('../models/file/product') 
 require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
-const URL_BASE = process.env.URL_BASE
 
 const {ProductDao} = require('../SelectSourceData/index')
 
