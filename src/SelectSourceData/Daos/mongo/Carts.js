@@ -44,4 +44,4 @@ class CartMongo extends ContainerMongo {
     }
 }
 
-module.exports = ProductMongo
+module.exports = CartMongo

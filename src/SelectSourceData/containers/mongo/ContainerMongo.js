@@ -18,7 +18,7 @@ class ContainerMongo {
 
     getAllOrId(id) {
         if (!id) return this.model.find()
-        return this.model.findById()
+        return this.model.findById(id)
     }
 
     updateById(id, data) {
